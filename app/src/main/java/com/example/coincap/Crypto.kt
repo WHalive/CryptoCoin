@@ -6,7 +6,6 @@ import java.math.BigDecimal
 data class Crypto(
     @SerializedName("data")
     val cryptoList: List<CryptoItem> = emptyList()
-
 )
 
 data class CryptoItem(
