@@ -19,8 +19,8 @@ val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET ("assets")
-    suspend fun getCryptos(): Crypto
+    @GET("assets")
+    suspend fun getCryptos(): CryptoEntities
 }
 
 object CryptoApi {

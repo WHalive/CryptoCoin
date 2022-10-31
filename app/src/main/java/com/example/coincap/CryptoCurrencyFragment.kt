@@ -45,15 +45,15 @@ class CryptoCurrencyFragment : Fragment() {
         }
     }
 
-    private fun updateUI(cryptos: List<CryptoItem>) {
+    private fun updateUI(cryptos: List<CryptoEntity>) {
         adapter.setCryptos(cryptos)
     }
 
     private class CryptoAdapter : RecyclerView.Adapter<CryptoAdapter.CryptoHolder>() {
 
-        private val cryptos = mutableListOf<CryptoItem>()
+        private val cryptos = mutableListOf<CryptoEntity>()
 
-        fun setCryptos(cryptos: List<CryptoItem>) {
+        fun setCryptos(cryptos: List<CryptoEntity>) {
             this.cryptos.clear()
             this.cryptos.addAll(cryptos)
             notifyDataSetChanged()
@@ -75,14 +75,14 @@ class CryptoCurrencyFragment : Fragment() {
 
 
             @SuppressLint("SetTextI18n")
-            fun bind(crypto: CryptoItem) {
+            fun bind(crypto: CryptoEntity) {
                 val symbol = crypto.symbol.lowercase()
                 val modifiedUrl =
-                    "https://cryptoicons.org/api/color/$symbol/600"
+                    "https://cryptoicons.org/api/color/$symbol/48"
                 binding.cryptoSymbol.text = crypto.symbol
                 binding.cryptoName.text = crypto.name
                 binding.cryptoIcon.load(modifiedUrl)
-                binding.cryptoPrice.text = NumberFormat.getInstance().format(crypto.price)
+                binding.cryptoPrice.text = NumberFormat.getInstance().format(crypto.priceUsd)
 
 
 //                binding.cryptoSupplyNumber.text = crypto.supply.toBigDecimal().toString()
